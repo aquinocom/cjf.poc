@@ -1,0 +1,4 @@
+graft src/cjf
+graft docs
+include *.rst
+global-exclude *.pyc
