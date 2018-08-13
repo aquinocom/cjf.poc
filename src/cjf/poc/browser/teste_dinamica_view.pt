@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html metal:use-macro="context/main_template/macros/master">
+<head>
+    <title></title>
+</head>
+<body metal:fill-slot="main">
+
+<div class="box_full">
+
+    <div class="box_lista_folders"
+         tal:define="folders view/getFolders;>
+        <div>
+
+            <tal:block tal:repeat="item folders">
+                <div tal:define="caminho python:item.getPath();
+                                 lista python: view.getFolderItens(caminho)"
+                     tal:attributes="id item/id"
+                     class="col_topicos">
+                    <h1 class="subtitulo" tal:content="item/Title">Subnivel</h1>
+
+                    <div class="col_topicos_left">
+                        <ul class="nav_subfolders">
+                            <li tal:repeat="item python: lista[0:5]" style="margin-bottom: 20px !important;">
+                                <a href="" class="hover-indice"
+                                   tal:attributes="href item/getURL">
+                                    <span tal:replace="item/Title">link subnivel</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col_topicos_right">
+                        <ul class="nav_subfolders">
+                            <li tal:repeat="item python: lista[5:10]" style="margin-bottom: 20px !important;">
+                                <a href="" class="hover-indice"
+                                   tal:attributes="href item/getURL">
+                                    <span tal:replace="item/Title">link subnivel</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </tal:block>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

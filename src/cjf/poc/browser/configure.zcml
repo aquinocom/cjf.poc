@@ -18,4 +18,23 @@
       directory="static"
       />
 
+  <!-- Pages -->
+  <browser:page
+      name="teste_dinamica_view"
+      for="*"
+      class=".view.TesteView"
+      permission="zope2.View"
+      layer="cjf.poc.interfaces.ICjfPocLayer"
+      template="teste_dinamica_view.pt"
+    />
+  <!-- Pages -->
+  <browser:page
+      name="teste_estatico_view"
+      for="*"
+      class=".view.TesteView"
+      permission="zope2.View"
+      layer="cjf.poc.interfaces.ICjfPocLayer"
+      template="teste_estatico_view.pt"
+    />
+
 </configure>
