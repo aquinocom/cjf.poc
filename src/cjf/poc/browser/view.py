@@ -32,7 +32,7 @@ class TesteView(BrowserView):
         """
         catalog = getToolByName(self, 'portal_catalog')
         path = '/'.join(self.context.getPhysicalPath())
-        folders = catalog(object_provides=IATFolder.__identifier__,
+        folders = catalog(portal_type='Folder',
                           path={'query': path, 'depth': 1},
                           sort_on='getObjPositionInParent',
                           exclude_from_nav=False
@@ -43,8 +43,7 @@ class TesteView(BrowserView):
         """Retorna o resultado de uma consulta no catalog.
         """
         catalog = getToolByName(self, 'portal_catalog')
-        folders = catalog(object_provides=[IATFolder.__identifier__, IATDocument.__identifier__],
-                          path={'query': path, 'depth': 1},
+        folders = catalog(path={'query': path, 'depth': 1},
                           sort_on='getObjPositionInParent',
                           exclude_from_nav=False
                           )
@@ -55,7 +54,7 @@ class TesteView(BrowserView):
         """
         catalog = getToolByName(self, 'portal_catalog')
         path = '/'.join(self.context.getPhysicalPath())
-        folders = catalog(object_provides=IATFolder.__identifier__,
+        folders = catalog(portal_type='Folder',
                           path={'query': path, 'depth': 0},
                           sort_on='getObjPositionInParent',
                           exclude_from_nav=False
